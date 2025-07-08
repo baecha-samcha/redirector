@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    window.onload = function () {
+      const path = decodeURIComponent(window.location.pathname.replace("/redirector/", ""));
+      if (path.startsWith("http")) {
+        window.location.href = path;
+      } else {
+        document.body.innerText = "잘못된 링크입니다.";
+      }
+    };
+  </script>
+</head>
+<body>
+  이동 중입니다...
+</body>
+</html>
