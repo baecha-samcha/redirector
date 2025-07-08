@@ -5,11 +5,14 @@
   <title>Redirecting...</title>
   <script>
     window.onload = function () {
-      const path = decodeURIComponent(window.location.pathname.replace("/redirector/", ""));
-      if (path.startsWith("http")) {
-        window.location.href = path;
+      const pathname = decodeURIComponent(window.location.pathname);
+      const parts = pathname.split('/');
+      const idx = parts.indexOf('redirector');
+      const target = parts.slice(idx + 1).join('/');
+      
+      if (target.startsWith("http")) {
+        window.location.href = target;
       } else {
-        
         document.body.innerText = "잘못된 링크입니다.";
       }
     };
